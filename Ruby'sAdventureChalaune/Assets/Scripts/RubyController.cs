@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
 
-    public int maxHealth = 5;
-    public float timeInvincible = 2.0f;
+    public int maxhealth = 5;
 
-    public int health { get { return currentHealth; } }
+    public GameObject projectilePrefab;
+
+    public int health { get { return currentHealth; }}
     int currentHealth;
 
+    public float timeInvincible = 2.0f;
     bool isInvincible;
     float invincibleTimer;
 
@@ -22,8 +25,7 @@ public class RubyController : MonoBehaviour
 
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
-
-    public GameObject projectilePrefab;
+    internal int maxHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class RubyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        currentHealth = maxHealth;
+        currentHealth = maxhealth;
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class RubyController : MonoBehaviour
 
         Vector2 move = new Vector2(horizontal, vertical);
 
-        if(!Mathf.Approximately(move.x, 0.0f)  ||  !Mathf.Approximately(move.y, 0.0f))
+        if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
@@ -59,7 +61,7 @@ public class RubyController : MonoBehaviour
                 isInvincible = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
         }
@@ -78,16 +80,15 @@ public class RubyController : MonoBehaviour
     {
         if (amount < 0)
         {
-            animator.SetTrigger("Hit");
-            if (!isInvincible)
+            if (isInvincible)
                 return;
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
         }
 
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
+        Debug.Log(currentHealth + "/" + maxhealth);
     }
 
     void Launch()
@@ -100,3 +101,4 @@ public class RubyController : MonoBehaviour
         animator.SetTrigger("Launch");
     }
 }
+

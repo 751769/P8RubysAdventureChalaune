@@ -18690,6 +18690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruby
       objectReference: {fileID: 0}
+    - target: {fileID: 5287584802576792457, guid: d8ceb95068ac2334eb01573bc0c00d5e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18762,7 +18766,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 382826477481368778, guid: 06b1464148779ac4c8271736d294db06, type: 3}
       propertyPath: m_Mass
-      value: 100
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 382826477481368778, guid: 06b1464148779ac4c8271736d294db06, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 569047917121889787, guid: 06b1464148779ac4c8271736d294db06, type: 3}
       propertyPath: m_Controller

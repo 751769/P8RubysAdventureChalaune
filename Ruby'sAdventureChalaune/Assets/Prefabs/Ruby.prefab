@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 565441795434726761}
   - component: {fileID: 5149592566685299499}
   - component: {fileID: 5638940158007818061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   speed: 3
   maxHealth: 5
   timeInvincible: 2
+  projectilePrefab: {fileID: 0}
 --- !u!50 &565441795434726761
 Rigidbody2D:
   serializedVersion: 4
