@@ -25,7 +25,6 @@ public class RubyController : MonoBehaviour
 
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
-    internal int maxHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +87,8 @@ public class RubyController : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
-        Debug.Log(currentHealth + "/" + maxhealth);
+        
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxhealth);
     }
 
     void Launch()
