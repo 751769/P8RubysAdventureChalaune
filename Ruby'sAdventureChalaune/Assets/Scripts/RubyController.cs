@@ -8,7 +8,7 @@ public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
 
-    public int maxhealth = 5;
+    public int maxHealth = 5;
 
     public GameObject projectilePrefab;
 
@@ -32,7 +32,7 @@ public class RubyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        currentHealth = maxhealth;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -86,9 +86,9 @@ public class RubyController : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
 
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
-        
-        UIHealthBar.instance.SetValue(currentHealth / (float)maxhealth);
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     void Launch()
